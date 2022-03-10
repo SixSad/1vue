@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/vue.min.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+<div id="app">
+    <div>
+        <label for="name">Input your name</label>
+        <input type="text" v-model="input" id="name">
+        <button v-on:click="inputName">Confirm</button>
+    </div>
+    <br>
+    <div>
+        <label for="order">Input your order</label>
+        <input type="text" v-model="order" id="order">
+        <button v-on:click="addOrder">Add</button>
+
+    </div>
+
+    <div>
+        <h2>{{name}}</h2>
+        <ol>
+            <todo-item v-for="order in orderList" v-bind:todo="order" v-bind:key="order.id" v-on:delete="deleteOrder(order.id)"></todo-item>
+        </ol>
+    </div>
+</div>
+
+
+</body>
+</html>
